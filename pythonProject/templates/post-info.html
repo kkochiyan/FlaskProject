@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ article.title }}
+{% endblock %}
+
+{% block headers %}
+    <h1>{{ article.title }}</h1>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <p>{{ article.intro }}</p>
+        <p>{{ article.text }}</p>
+        <p><b>Дата публикации: {{ article.date.date() }}</b></p>
+        <a href="/posts/{{ article.id }}/del" class="btn btn-danger">Удалить</a>
+        <a href="/posts/{{ article.id }}/update" class="btn btn-warning">Редактировать</a>
+    </div>
+
+<!--    <form method="post">-->
+<!--        <h1 class="h3 mb-3 fw-normal">Напишите комментарий к статье</h1>-->
+
+<!--        <div class="form-floating">-->
+<!--            <input type="text" name="comment" class="form-control" id="comment"><br>-->
+<!--            <label>Введите комментарий</label>-->
+<!--        </div>-->
+<!--    </form>-->
+{% endblock %}

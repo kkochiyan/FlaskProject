@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Все статьи, по вашему запросу
+{% endblock %}
+
+{% block headers %}
+    <h1>Найденные статьи по запросу: {{ articles.title }}</h1>
+{% endblock %}
+
+{% block body %}
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}
+
+
+                {% if articles %}
+                {% for el in articles %}
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="https://cdn.culture.ru/images/f0ce9123-691d-5417-b64c-566b0f3ac269">
+                            <div class="card-body">
+                                <p class="card-text"><ya-tr-span data-index="6-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="This is a wider card with supporting text below as a natural lead-in to additional content. " data-translation="Это более широкая карточка с дополнительным текстом под ней, который естественным образом подводит к основному контенту. " data-ch="0" data-type="trSpan" style="visibility: inherit !important;">{{ el.title }}</ya-tr-span></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="/posts/{{ el.id }}" class="btn btn-secondary rounded-pill px-3">Детальнее</a>
+                                    </div>
+                                    <small class="text-body-secondary"><ya-tr-span data-index="8-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="9 mins" data-translation="9 минут" data-ch="0" data-type="trSpan" style="visibility: inherit !important;">{{ el.date.date() }}</ya-tr-span></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="container">
+                        <h1>По вашему запросу ничего не найдено</h1>
+                    </div>
+                {% endfor %}
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

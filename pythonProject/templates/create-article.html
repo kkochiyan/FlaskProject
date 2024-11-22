@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Создание статьи
+{% endblock %}
+
+{% block headers %}
+    <h1>Создание статьи</h1>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<form method="post">
+    <h1 class="h3 mb-3 fw-normal">Заполните поля</h1>
+
+    <div class="form-floating">
+      <input type="text" name="title" class="form-control" id="title" placeholder="Введите заголовок"><br>
+      <label>Введите заголовок</label>
+    </div>
+    <div class="form-floating">
+      <textarea name="intro" id="intro" class="form-control" placeholder="Введите анонс"></textarea><br>
+      <label>Введите анонс</label>
+    </div>
+    <div class="form-floating">
+      <textarea name="text" id="text" class="form-control" placeholder="Введите текст статьи"></textarea><br>
+      <label>Введите основной текст статьи</label>
+    </div>
+
+    <input type="submit" class="btn btn-success" value="Отправить">
+</form>
+</div>
+{% endblock %}
